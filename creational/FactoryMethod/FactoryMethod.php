@@ -2,12 +2,14 @@
 
 declare(strict_types = 1);
 
-interface Product
+namespace Application;
+
+interface Fruit
 {
     public function getCalories(): float;
 }
 
-class Apple implements Product
+class Apple implements Fruit
 {
     public function getCalories(): float
     {
@@ -17,7 +19,7 @@ class Apple implements Product
     }
 }
 
-class Orange implements Product
+class Orange implements Fruit
 {
     public function getCalories(): float
     {
@@ -27,41 +29,35 @@ class Orange implements Product
     }
 }
 
-class ProductFactory
+abstract class CaloriesCalculatorAbstract
 {
-    public function create(string $type)
+    public function calculateCalories(float $weight): float
     {
-        $instance = null;
-        if ($type === 'orange') {
-            $instance = new Orange();
-        } else if ($type === 'apple') {
-            $instance = new Apple();
-        }
+        $product = $this->makeFruit();
 
-        return $instance;
-    }
-}
-
-class CaloriesCalculator
-{
-    public function calculateCalories($weight, $type): float
-    {
-        $productFactory = new ProductFactory();
-        $product = $productFactory->create($type);
-        if (!$product instanceof Product) {
-            throw new Exception('Unknown product type');
-        }
         $calories = $product->getCalories();
         $total = $calories * $weight;
 
         return $total;
     }
+
+    protected abstract function makeFruit(): Fruit;
 }
 
-$calories_calculator = new CaloriesCalculator();
+class OrangeCaloriesCalculator extends CaloriesCalculator
+{
+    protected function makeFruit(): Fruit
+    {
+        $fruit = new Orange();
 
-$p_type = 'apple';
-$p_weight = 100;
+        return $fruit;
+    }
+}
 
-$total_calories = $calories_calculator->calculateCalories($p_weight, $p_type);
+$calories_calculator = new OrangeCaloriesCalculator();
+
+$p_weight = 500;
+$p_type = 'orange';
+
+$total_calories = $calories_calculator->calculateCalories($p_weight);
 echo sprintf('%dg. of %s has %.0F calories', $p_weight, $p_type, $total_calories);
