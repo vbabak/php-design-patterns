@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace Application;
 
-interface Food
+interface FoodInterface
 {
     public function getCalories(): float;
 }
 
-class Apple implements Food
+class Apple implements FoodInterface
 {
     public function getCalories(): float
     {
@@ -19,7 +19,7 @@ class Apple implements Food
     }
 }
 
-class Orange implements Food
+class Orange implements FoodInterface
 {
     public function getCalories(): float
     {
@@ -50,7 +50,7 @@ class CaloriesCalculator
     {
         $productFactory = new FoodFactory();
         $product = $productFactory->create($type);
-        if (!$product instanceof Food) {
+        if (!$product instanceof FoodInterface) {
             throw new \Exception('Unknown product type');
         }
         $calories = $product->getCalories();
