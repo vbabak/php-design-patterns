@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace Application;
 
-interface Fruit
+interface FruitInterface
 {
     public function getCalories(): float;
 }
 
-class Apple implements Fruit
+class Apple implements FruitInterface
 {
     public function getCalories(): float
     {
@@ -19,7 +19,7 @@ class Apple implements Fruit
     }
 }
 
-class Orange implements Fruit
+class Orange implements FruitInterface
 {
     public function getCalories(): float
     {
@@ -41,12 +41,12 @@ abstract class CaloriesCalculatorAbstract
         return $total;
     }
 
-    protected abstract function makeFruit(): Fruit;
+    protected abstract function makeFruit(): FruitInterface;
 }
 
-class OrangeCaloriesCalculator extends CaloriesCalculator
+class OrangeCaloriesCalculator extends CaloriesCalculatorAbstract
 {
-    protected function makeFruit(): Fruit
+    protected function makeFruit(): FruitInterface
     {
         $fruit = new Orange();
 
