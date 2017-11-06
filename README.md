@@ -9,4 +9,6 @@ Most frequently used design patterns in PHP language.
 
 [Factory Method](creational/FactoryMethod/README.md)
 
+[Abstract Factory](creational/AbstractFactory/README.md)
+
 
