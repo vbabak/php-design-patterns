@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Application;
+namespace Factory;
 
 interface FoodInterface
 {
