@@ -18,6 +18,8 @@ Most frequently used design patterns in PHP language.
 
 [Abstract Factory](creational/AbstractFactory/README.md)
 
+[Dependency Injection](creational/DependencyInjection/README.md)
+
 ## Structural
 
 [Decorator](structural/Decorator/README.md)
