@@ -4,6 +4,10 @@ PHP Design Patterns
 Most frequently used design patterns in PHP language. 
 > Requires PHP >= 7.1
 
+## Fundamental
+
+[AwareInterface](fundamental/AwareInterface/README.md)
+
 ## Creational
 
 [Factory](creational/Factory/README.md)
