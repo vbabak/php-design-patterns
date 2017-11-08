@@ -6,6 +6,8 @@ Most frequently used design patterns in PHP language.
 
 ## Fundamental
 
+[MarkerInterface](fundamental/MarkerInterface/README.md)
+
 [AwareInterface](fundamental/AwareInterface/README.md)
 
 ## Creational
