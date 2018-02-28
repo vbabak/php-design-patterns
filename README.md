@@ -20,6 +20,8 @@ Most frequently used design patterns in PHP language.
 
 [Dependency Injection](creational/DependencyInjection/README.md)
 
+[Service Locator](creational/ServiceLocator/README.md)
+
 [Singleton](creational/Singleton/README.md)
 
 ## Structural
