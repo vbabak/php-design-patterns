@@ -132,7 +132,7 @@ class BasketFactory implements FactoryInterface
     {
         $apple = $serviceLocator->get('apple');
         $basket = new Basket();
-        $basket->addApple($apple); // set dependency manually
+        $basket->addApple($apple); // set dependency explicitly
 
         return $basket;
     }
